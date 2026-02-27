@@ -1,178 +1,1122 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>Your 5-Day Cruise Awaits - Aloha Hawaii Tours and Travel</title>
-<style>
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background: #f4f4f4; line-height: 1.5; color: #333; }
-  .container { max-width: 480px; margin: 0 auto; background: #fff; min-height: 100vh; }
-  
-  .header { background: linear-gradient(135deg, #0066cc 0%, #003d7a 100%); padding: 20px; text-align: center; color: #fff; }
-  .header h1 { font-size: 18px; text-transform: uppercase; letter-spacing: 1px; }
-  
-  .urgency { background: #ff6b35; color: #fff; text-align: center; padding: 10px; font-size: 13px; font-weight: bold; }
-  
-  .hero-img { width: 100%; height: 250px; object-fit: cover; display: block; }
-  
-  .content { padding: 25px 20px; }
-  .content h2 { font-size: 24px; color: #1a1a1a; margin-bottom: 15px; line-height: 1.2; }
-  .content .subhead { color: #666; font-size: 16px; margin-bottom: 20px; }
-  
-  .webinar-details { background: #f8f9fa; padding: 20px; border-radius: 8px; margin: 20px 0; border-left: 4px solid #0066cc; }
-  .webinar-details h4 { font-size: 14px; color: #0066cc; margin-bottom: 10px; }
-  .webinar-details p { font-size: 14px; color: #333; margin: 0; line-height: 1.6; }
-  
-  .cruise-lines { background: #f8f9fa; padding: 15px; border-radius: 8px; margin: 20px 0; text-align: center; }
-  .cruise-lines p { font-size: 13px; color: #666; margin-bottom: 10px; }
-  .cruise-lines .logos { font-size: 24px; letter-spacing: 5px; }
-  .cruise-lines p.brands { margin-top: 10px; font-size: 12px; color: #0066cc; font-weight: bold; }
-  
-  .includes { background: linear-gradient(135deg, #fff8e7 0%, #ffecd2 100%); border-left: 4px solid #ff6b35; padding: 20px; margin: 20px 0; border-radius: 0 8px 8px 0; }
-  .includes h3 { font-size: 16px; margin-bottom: 12px; color: #1a1a1a; }
-  .includes ul { list-style: none; }
-  .includes li { padding: 8px 0; font-size: 14px; padding-left: 25px; position: relative; }
-  .includes li:before { content: "✓"; position: absolute; left: 0; color: #28a745; font-weight: bold; font-size: 16px; }
-  
-  .routes { background: #e8f4fc; padding: 15px; border-radius: 8px; margin: 20px 0; }
-  .routes h4 { font-size: 14px; color: #0066cc; margin-bottom: 10px; }
-  .routes p { font-size: 13px; color: #333; margin: 5px 0; }
-  
-  .bonus { background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%); border: 2px solid #28a745; padding: 20px; margin: 20px 0; border-radius: 8px; text-align: center; }
-  .bonus h3 { color: #155724; font-size: 18px; margin-bottom: 8px; }
-  .bonus p { color: #155724; font-size: 14px; margin: 0; }
-  
-  .cta { padding: 0 20px 20px; }
-  .btn { display: block; width: 100%; padding: 20px; border-radius: 8px; text-align: center; text-decoration: none; font-weight: bold; font-size: 18px; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
-  .btn-primary { background: linear-gradient(135deg, #ff6b35 0%, #e55a2b 100%); color: #fff; }
-  .btn-secondary { background: linear-gradient(135deg, #0066cc 0%, #003d7a 100%); color: #fff; font-size: 16px; }
-  .btn-note { text-align: center; color: #666; font-size: 13px; margin-top: -10px; margin-bottom: 20px; }
-  .btn-warning { text-align: center; color: #856404; font-size: 12px; background: #fff3cd; padding: 10px; border-radius: 6px; margin-top: -5px; margin-bottom: 20px; border: 1px solid #ffc107; }
-  
-  .zoom-details { background: #f0f9ff; border: 2px solid #0066cc; padding: 20px; margin: 0 20px 20px; border-radius: 8px; }
-  .zoom-details h4 { color: #0066cc; margin-bottom: 15px; font-size: 16px; text-align: center; }
-  
-  .zoom-option { background: #fff; padding: 15px; border-radius: 8px; margin-bottom: 15px; border: 1px solid #bfdbfe; }
-  .zoom-option:last-child { margin-bottom: 0; }
-  .zoom-option h5 { color: #1e3a8a; font-size: 14px; margin-bottom: 10px; }
-  .zoom-option ol { margin: 0; padding-left: 20px; }
-  .zoom-option li { font-size: 13px; color: #333; margin-bottom: 6px; line-height: 1.4; }
-  .zoom-option li:last-child { margin-bottom: 0; }
-  .zoom-option a { color: #0066cc; text-decoration: underline; word-break: break-all; }
-  .zoom-option .code { font-family: 'Courier New', monospace; font-weight: bold; color: #0066cc; }
-  
-  .trust { padding: 20px; text-align: center; border-top: 1px solid #eee; }
-  .trust p { font-size: 12px; color: #999; line-height: 1.8; }
-  
-  .footer { background: #1a1a1a; color: #fff; padding: 25px 20px; text-align: center; }
-  .footer p { font-size: 18px; margin-bottom: 5px; }
-  .footer a { color: #60a5fa; text-decoration: none; font-size: 14px; }
-  
-  @keyframes pulse {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.03); }
-  }
-  .pulse { animation: pulse 2s infinite; }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Exclusive Cruise Invitation - Aloha Hawaii Tours</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;600;700;800&display=swap');
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f0f4f8;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+        }
+
+        .email-wrapper {
+            max-width: 600px;
+            margin: 20px auto;
+            background: #ffffff;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+
+        /* Urgency Bar */
+        .urgency-bar {
+            background: linear-gradient(90deg, #ff416c, #ff4b2b);
+            color: white;
+            text-align: center;
+            padding: 15px;
+            font-weight: 700;
+            font-size: 16px;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            padding: 50px 30px;
+            text-align: center;
+            position: relative;
+        }
+
+        .header h1 {
+            color: #ffffff;
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 36px;
+            margin: 0 0 15px 0;
+            line-height: 1.2;
+        }
+
+        .header-subtitle {
+            color: #ffd700;
+            font-size: 20px;
+            font-weight: 600;
+            margin: 0 0 25px 0;
+        }
+
+        .header-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            color: white;
+            padding: 10px 25px;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 600;
+            border: 2px solid rgba(255,255,255,0.3);
+        }
+
+        /* Invitation Section */
+        .invitation-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 50px 30px;
+            text-align: center;
+        }
+
+        .invitation-section h2 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 28px;
+            margin: 0 0 20px 0;
+        }
+
+        .invitation-section p {
+            font-size: 17px;
+            line-height: 1.6;
+            margin: 0 0 30px 0;
+            opacity: 0.95;
+        }
+
+        .benefits-box {
+            background: rgba(255,255,255,0.15);
+            border-radius: 15px;
+            padding: 30px;
+            margin-top: 30px;
+            text-align: left;
+            backdrop-filter: blur(10px);
+        }
+
+        .benefits-box h3 {
+            margin: 0 0 20px 0;
+            font-size: 20px;
+            color: #ffd700;
+            text-align: center;
+        }
+
+        .benefit-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+            font-size: 15px;
+        }
+
+        .benefit-icon {
+            font-size: 20px;
+            margin-right: 12px;
+            flex-shrink: 0;
+        }
+
+        .benefit-text {
+            line-height: 1.5;
+        }
+
+        /* What You Get Section */
+        .what-you-get {
+            padding: 50px 30px;
+            background: #ffffff;
+        }
+
+        .what-you-get h2 {
+            text-align: center;
+            color: #2c3e50;
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .what-you-get > p {
+            text-align: center;
+            color: #7f8c8d;
+            margin-bottom: 40px;
+            font-size: 16px;
+        }
+
+        .cruise-preview {
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 40px;
+            border: 2px solid #4caf50;
+            text-align: center;
+        }
+
+        .cruise-preview h3 {
+            color: #2e7d32;
+            margin: 0 0 15px 0;
+            font-size: 24px;
+        }
+
+        .cruise-preview p {
+            color: #555;
+            margin: 0;
+            font-size: 16px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .feature-item {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .feature-emoji {
+            font-size: 40px;
+            margin-bottom: 10px;
+        }
+
+        .feature-title {
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 5px;
+            font-size: 15px;
+        }
+
+        .feature-desc {
+            font-size: 13px;
+            color: #666;
+        }
+
+        /* Cruise Lines */
+        .cruise-lines {
+            background: white;
+            padding: 40px 30px;
+            text-align: center;
+        }
+
+        .cruise-lines h3 {
+            color: #2c3e50;
+            margin-bottom: 30px;
+            font-size: 16px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .cruise-logos {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .cruise-logo {
+            height: 50px;
+            width: auto;
+            object-fit: contain;
+            filter: grayscale(100%);
+            opacity: 0.7;
+            transition: all 0.3s;
+        }
+
+        .cruise-logo:hover {
+            filter: grayscale(0%);
+            opacity: 1;
+        }
+
+        /* Gallery */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            padding: 20px;
+            background: #f8f9fa;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 12px;
+            transition: transform 0.3s;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.05);
+        }
+
+        /* Schedule Section */
+        .schedule-section {
+            padding: 50px 30px;
+            background: #ffffff;
+        }
+
+        .schedule-section h2 {
+            text-align: center;
+            color: #2c3e50;
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .schedule-subtitle {
+            text-align: center;
+            color: #7f8c8d;
+            margin-bottom: 40px;
+        }
+
+        .timezone-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .timezone-card {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            padding: 20px;
+            border-radius: 12px;
+            border-left: 4px solid #1976d2;
+            transition: transform 0.3s;
+        }
+
+        .timezone-card:hover {
+            transform: translateY(-3px);
+        }
+
+        .timezone-card h4 {
+            margin: 0 0 10px 0;
+            color: #2c3e50;
+            font-size: 16px;
+        }
+
+        .timezone-card .times {
+            color: #1976d2;
+            font-weight: 700;
+            font-size: 18px;
+            margin: 0;
+        }
+
+        /* Live Now CTA */
+        .live-now {
+            background: linear-gradient(135deg, #ff416c, #ff4b2b);
+            color: white;
+            padding: 40px;
+            text-align: center;
+            border-radius: 15px;
+            margin: 30px 0;
+            box-shadow: 0 10px 30px rgba(255, 75, 43, 0.3);
+        }
+
+        .live-now h3 {
+            margin: 0 0 15px 0;
+            font-size: 28px;
+        }
+
+        .live-now p {
+            margin: 0 0 25px 0;
+            font-size: 16px;
+        }
+
+        .zoom-details {
+            background: rgba(255,255,255,0.15);
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: left;
+        }
+
+        .zoom-details p {
+            margin: 8px 0;
+            font-size: 15px;
+        }
+
+        .zoom-details strong {
+            color: #ffd700;
+        }
+
+        .zoom-instructions {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 25px;
+            margin: 20px 0;
+            text-align: left;
+            color: #2c3e50;
+        }
+
+        .zoom-instructions h4 {
+            color: #1e3c72;
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+
+        .zoom-instructions ol {
+            margin: 0 0 15px 0;
+            padding-left: 20px;
+        }
+
+        .zoom-instructions li {
+            margin-bottom: 8px;
+            line-height: 1.5;
+        }
+
+        .zoom-instructions a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 18px 40px;
+            background: #ffd700;
+            color: #1e3c72;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 800;
+            font-size: 18px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4);
+            transition: transform 0.3s;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+        }
+
+        .btn-secondary {
+            background: #2c3e50;
+            color: white;
+            font-size: 16px;
+            padding: 15px 30px;
+        }
+
+        /* Bonus Section */
+        .bonus-section {
+            background: #1e3c72;
+            color: #ffd700;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .bonus-section h3 {
+            margin: 0 0 10px 0;
+            font-size: 22px;
+        }
+
+        .bonus-section p {
+            margin: 0;
+            color: white;
+            font-size: 15px;
+        }
+
+        /* Reviews */
+        .reviews-section {
+            background: #f8f9fa;
+            padding: 50px 30px;
+        }
+
+        .reviews-section h2 {
+            text-align: center;
+            color: #2c3e50;
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 32px;
+            margin-bottom: 40px;
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .review-card {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            position: relative;
+        }
+
+        .review-card::before {
+            content: '"';
+            font-size: 60px;
+            color: #1976d2;
+            opacity: 0.2;
+            position: absolute;
+            top: 10px;
+            left: 15px;
+            font-family: Georgia, serif;
+        }
+
+        .stars {
+            color: #ffd700;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .review-text {
+            color: #555;
+            font-size: 15px;
+            line-height: 1.6;
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .reviewer {
+            font-weight: 700;
+            color: #2c3e50;
+            font-size: 14px;
+        }
+
+        /* TRANSPARENCY SECTION - MOVED TO END */
+        .transparency-section {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 50px 30px;
+        }
+
+        .transparency-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .transparency-badge {
+            display: inline-block;
+            background: #ff6b6b;
+            color: white;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+        }
+
+        .transparency-header h2 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 28px;
+            margin: 0 0 15px 0;
+        }
+
+        .transparency-header p {
+            font-size: 18px;
+            opacity: 0.9;
+            margin: 0;
+            font-style: italic;
+        }
+
+        .truth-box {
+            background: rgba(255,255,255,0.1);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            backdrop-filter: blur(10px);
+        }
+
+        .truth-box h3 {
+            margin: 0 0 15px 0;
+            font-size: 22px;
+            color: #ffd700;
+        }
+
+        .truth-box p {
+            margin: 0;
+            font-size: 16px;
+            line-height: 1.6;
+            opacity: 0.95;
+        }
+
+        .bottom-line {
+            background: rgba(255,215,0,0.2);
+            border-left: 4px solid #ffd700;
+            padding: 20px;
+            border-radius: 0 10px 10px 0;
+            margin-bottom: 40px;
+        }
+
+        .bottom-line h4 {
+            margin: 0 0 10px 0;
+            color: #ffd700;
+            font-size: 18px;
+        }
+
+        .bottom-line p {
+            margin: 0;
+            font-size: 15px;
+        }
+
+        /* Comparison in transparency section */
+        .comparison-container {
+            display: grid;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .comparison-card {
+            border-radius: 15px;
+            padding: 25px;
+            background: rgba(255,255,255,0.1);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .card-icon {
+            font-size: 28px;
+            margin-right: 12px;
+        }
+
+        .card-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin: 0;
+        }
+
+        .price-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+            font-size: 14px;
+        }
+
+        .price-row:last-child {
+            border-bottom: none;
+        }
+
+        .price-value {
+            font-weight: 700;
+        }
+
+        .price-zero {
+            color: #4caf50;
+            font-size: 18px;
+        }
+
+        .total-row {
+            background: rgba(0,0,0,0.2);
+            border-radius: 10px;
+            padding: 15px;
+            margin-top: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .total-value {
+            font-weight: 800;
+            font-size: 22px;
+            color: #ffd700;
+        }
+
+        .savings-highlight {
+            text-align: center;
+            background: #ffd700;
+            color: #1e3c72;
+            padding: 20px;
+            border-radius: 15px;
+            margin: 30px 0;
+        }
+
+        .savings-highlight h3 {
+            margin: 0;
+            font-size: 28px;
+            font-weight: 800;
+        }
+
+        .savings-highlight p {
+            margin: 10px 0 0 0;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .why-section h3 {
+            text-align: center;
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 24px;
+            margin-bottom: 30px;
+        }
+
+        .why-grid {
+            display: grid;
+            gap: 20px;
+        }
+
+        .why-card {
+            background: rgba(255,255,255,0.1);
+            border-radius: 12px;
+            padding: 25px;
+        }
+
+        .why-card h4 {
+            margin: 0 0 10px 0;
+            font-size: 18px;
+            color: #ffd700;
+        }
+
+        .why-card p {
+            margin: 0;
+            font-size: 14px;
+            line-height: 1.5;
+            opacity: 0.95;
+        }
+
+        /* Important Info */
+        .important-info {
+            background: #fff3e0;
+            border-left: 5px solid #ff9800;
+            padding: 25px;
+            margin: 20px;
+            border-radius: 0 10px 10px 0;
+        }
+
+        .important-info h4 {
+            color: #e65100;
+            margin: 0 0 15px 0;
+            font-size: 18px;
+        }
+
+        .important-info ul {
+            color: #bf360c;
+            margin: 0;
+            padding-left: 20px;
+            line-height: 1.8;
+        }
+
+        /* Referral */
+        .referral-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+        }
+
+        .referral-section h3 {
+            margin: 0 0 15px 0;
+            font-size: 24px;
+        }
+
+        .referral-section p {
+            margin: 0 0 20px 0;
+        }
+
+        /* Footer */
+        .footer {
+            background: #1e3c72;
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+        }
+
+        .footer h3 {
+            margin: 0 0 10px 0;
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 24px;
+        }
+
+        .footer-phone {
+            font-size: 28px;
+            font-weight: 700;
+            color: #ffd700;
+            margin: 15px 0;
+        }
+
+        .footer p {
+            margin: 5px 0;
+            opacity: 0.8;
+            font-size: 14px;
+        }
+
+        /* Responsive */
+        @media only screen and (max-width: 600px) {
+            .header h1 { font-size: 28px; }
+            .features-grid { grid-template-columns: 1fr; }
+            .gallery { grid-template-columns: 1fr; }
+            .timezone-grid { grid-template-columns: 1fr; }
+            .email-wrapper { margin: 0; border-radius: 0; }
+            .zoom-instructions { padding: 15px; }
+        }
+    </style>
+<base target="_blank">
 </head>
 <body>
+    <div class="email-wrapper">
+        <!-- Urgency Bar -->
+        <div class="urgency-bar">
+            &#128293; Limited Availability: Only 12 Cruise Certificates Remaining This Week
+        </div>
 
-<div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="header-badge">Exclusive Invitation</div>
+            <h1>You're Invited to Our Interactive Travel Webinar</h1>
+            <p class="header-subtitle">Discover How to Book Travel at Zero Markup</p>
+        </div>
 
-  <div class="header">
-    <h1>Aloha Hawaii Tours and Travel</h1>
-  </div>
-  
-  <div class="urgency">🔥 Spots Are Filling Fast - Join Today</div>
-  
-  <img src="https://images.pexels.com/photos/843633/pexels-photo-843633.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Cruise Ship" class="hero-img">
-  
-  <div class="content">
-    <h2>Watch Our 45-Minute Zoom Travel Presentation and Receive a 5-Day/4-Night Cruise Certificate for 2!</h2>
-    <p class="subhead">Join our private travel webinar. <strong>No timeshare. No membership obligation. No fee to attend.</strong> You receive your Cruise voucher just by completing the session as a token of appreciation.</p>
-    
-    <div class="webinar-details">
-      <h4>🎥 What You'll Learn in This Session:</h4>
-      <p>We demonstrate how you can book cruises and hotels using our exclusive travel platform with <strong>zero markups</strong>. See exactly how our members access wholesale prices and save hundreds on every trip. No gimmicks, just real savings.</p>
-    </div>
-    
-    <div class="cruise-lines">
-      <p>Your Choice of Premium Cruise Lines</p>
-      <div class="logos">🚢 🚢 🚢 🚢</div>
-      <p class="brands">Royal Caribbean • Carnival • Norwegian • Princess</p>
-    </div>
-    
-    <div class="includes">
-      <h3>Your 5-Day/4-Night Cruise Includes:</h3>
-      <ul>
-        <li>Oceanview stateroom for 2 adults</li>
-        <li>All onboard meals & unlimited buffets</li>
-        <li>Live shows, comedy & entertainment</li>
-        <li>Pool, spa & fitness center access</li>
-        <li>Multiple ports & shore excursions</li>
-        <li>24 months to use your certificate</li>
-        <li>Valid on Royal Caribbean, Carnival, Norwegian, or Princess</li>
-      </ul>
-    </div>
-    
-    <div class="routes">
-      <h4>🌎 Popular Routes</h4>
-      <p><strong>Miami → Cozumel</strong> (Carnival - Best for fun)</p>
-      <p><strong>Port Canaveral → Nassau</strong> (Royal Caribbean - Best for families)</p>
-      <p><strong>Los Angeles → Ensenada</strong> (Norwegian - Best for relaxing)</p>
-    </div>
-    
-    <div class="bonus">
-      <h3>💻 +$100 Rewards Voucher Bonus</h3>
-      <p>Join using a laptop, desktop, or tablet for the best viewing experience and receive an additional $100 Rewards Voucher on top of your cruise!</p>
-    </div>
-  </div>
-  
-  <div class="cta">
-    <a href="https://docs.google.com/forms/d/e/1FAIpQLScl4yGIuQTlfE_vAJjFv_FEh8updma0BiN4fKYRoKAC5XZCxw/viewform?usp=header" class="btn btn-primary pulse">Reserve Your Spot</a>
-    <p class="btn-note">See available times & schedule</p>
-    
-    <a href="https://zoom.us/my/alohatravel?pwd=ckhzbFk5ZElBSjhxSDF1YkpVOGRCZz09" class="btn btn-secondary">Join Now</a>
-    <p class="btn-warning">⚠️ Please refer to "Reserve Your Spot" above to check schedule before joining</p>
-  </div>
-  
-  <div class="zoom-details">
-    <h4>🌐 How to Join Your Zoom Session</h4>
-    
-    <div class="zoom-option">
-      <h5>📱 If You Don't Have Zoom Installed:</h5>
-      <ol>
-        <li>Click on the meeting link (<a href="https://zoom.us/j/8088001202">https://zoom.us/j/8088001202</a>)</li>
-        <li>Select <strong>"Join from your browser"</strong></li>
-        <li>Click <strong>"Use Microphone & Camera"</strong></li>
-        <li>Enter the meeting code <span class="code">(8088 0012 02)</span> / Passcode <span class="code">(8080)</span> & your Name</li>
-        <li>Click <strong>JOIN</strong> & wait for the host to let you in</li>
-      </ol>
-    </div>
-    
-    <div class="zoom-option">
-      <h5>💻 If Zoom Is Installed on Your Device:</h5>
-      <ol>
-        <li>Launch Zoom</li>
-        <li>Click <strong>JOIN</strong></li>
-        <li>Enter Meeting ID <span class="code">(8088 0012 02)</span> & your name</li>
-        <li>Click <strong>Join</strong></li>
-        <li>Enter Passcode <span class="code">(8080)</span> when prompted</li>
-      </ol>
-    </div>
-  </div>
-  
-  <div class="trust">
-    <p>✓ 100% Not a Timeshare<br>✓ Fully Transferable<br>✓ Certificate Emailed After Session</p>
-  </div>
-  
-  <div class="footer">
-    <p>📞 (808) 736-4742</p>
-    <a href="https://www.alohahawaiitours.com/">www.alohahawaiitours.com</a>
-  </div>
+        <!-- Invitation Section -->
+        <div class="invitation-section">
+            <h2>What's In It For You? &#127873;</h2>
+            <p>Join Aloha Hawaii Tours & Travel for a complimentary 45-minute interactive Zoom session where we'll demonstrate our exclusive online booking platform. Learn how to access wholesale rates on hotels, cruises, and vacations — <strong>zero markups, no hidden fees</strong>.</p>
 
-</div>
+            <div class="benefits-box">
+                <h3>&#10024; Your Benefits</h3>
+                <div class="benefit-item">
+                    <span class="benefit-icon">&#128187;</span>
+                    <span class="benefit-text"><strong>Interactive 45-Min Webinar:</strong> Live demo of our booking platform</span>
+                </div>
+                <div class="benefit-item">
+                    <span class="benefit-icon">&#127891;</span>
+                    <span class="benefit-text"><strong>Learn the Secrets:</strong> How to book at true wholesale prices</span>
+                </div>
+                <div class="benefit-item">
+                    <span class="benefit-icon">&#128674;</span>
+                    <span class="benefit-text"><strong>Exclusive Cruise Voucher:</strong> Yours just for attending — emailed same day</span>
+                </div>
+                <div class="benefit-item">
+                    <span class="benefit-icon">&#128176;</span>
+                    <span class="benefit-text"><strong>Extra $100 Bonus:</strong> Join on desktop/tablet for additional rewards</span>
+                </div>
+                <div class="benefit-item">
+                    <span class="benefit-icon">&#128581;</span>
+                    <span class="benefit-text"><strong>Zero Pressure:</strong> Not a timeshare, no membership required, no fee to attend</span>
+                </div>
+            </div>
+        </div>
 
+        <!-- What You Get Section -->
+        <div class="what-you-get">
+            <h2>Your Exclusive Cruise Voucher</h2>
+            <p>Attend our webinar and receive this exclusive certificate</p>
+
+            <div class="cruise-preview">
+                <h3>&#128755; 5-Day / 4-Night Caribbean Cruise for Two</h3>
+                <p>Valid for 24 months • Choose your preferred cruise line • Emailed immediately after session</p>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-emoji">&#127860;</div>
+                    <div class="feature-title">All Meals Included</div>
+                    <div class="feature-desc">Buffets & restaurants</div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-emoji">&#127917;</div>
+                    <div class="feature-title">Vegas-Style Shows</div>
+                    <div class="feature-desc">Broadway entertainment</div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-emoji">&#127946;</div>
+                    <div class="feature-title">Resort Pools</div>
+                    <div class="feature-desc">Water slides & spas</div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-emoji">&#128719;</div>
+                    <div class="feature-title">Luxury Cabin</div>
+                    <div class="feature-desc">Ocean views available</div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-emoji">&#127796;</div>
+                    <div class="feature-title">Tropical Ports</div>
+                    <div class="feature-desc">Cozumel, Nassau, Bahamas</div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-emoji">&#128197;</div>
+                    <div class="feature-title">24 Months Valid</div>
+                    <div class="feature-desc">Travel when ready</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Cruise Lines -->
+        <div class="cruise-lines">
+            <h3>Choose Your Preferred Cruise Line</h3>
+            <div class="cruise-logos">
+                <img src="https://iprsoftwaremedia.com/412/files/202401/65a05cf13d63321dea1158db_Carnival%20Cruise%20Line%20Logo/Carnival%20Cruise%20Line%20Logo_546b4934-4026-4c91-bee0-23009835cbf5-prv.jpg" alt="Carnival" class="cruise-logo">
+                <img src="https://www.vhv.rs/dpng/d/82-827705_royal-caribbean-cruises-ltd-logo-hd-png-download.png" alt="Royal Caribbean" class="cruise-logo" style="height: 60px;">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Norwegian-Cruise-Line-Logo.svg/3840px-Norwegian-Cruise-Line-Logo.svg.png" alt="Norwegian" class="cruise-logo">
+                <img src="https://www.drupal.org/files/Princess_Cruises_Corp_3line_RGB_2016.jpg" alt="Princess" class="cruise-logo">
+            </div>
+        </div>
+
+        <!-- Gallery -->
+        <div class="gallery">
+            <img src="https://images.unsplash.com/photo-1548574505-5e239809ee19?w=600" alt="Cruise Ship Sunset">
+            <img src="https://assets.dm.rccl.com/is/image/RoyalCaribbeanCruises/royal/ports-and-destinations/destinations/royal-beach-club/cozumel/render/royal-beach-club-cozumel-pool-and-beach-view.jpg?$1440x600$" alt="Royal Caribbean Pool">
+            <img src="https://www.cruzely.com/wp-content/uploads/suite-balcony.jpg" alt="Balcony Cabin">
+            <img src="https://assets.dm.rccl.com/is/image/RoyalCaribbeanCruises/royal/ports-and-destinations/destinations/royal-beach-club/cozumel/render/royal-beach-club-cozumel-pool-and-beach-view.jpg?$440x440$" alt="Caribbean Beach">
+        </div>
+
+        <!-- Schedule Section -->
+        <div class="schedule-section">
+            <h2>&#128336; Live Sessions Available Daily</h2>
+            <p class="schedule-subtitle">Including weekends — Choose your preferred time</p>
+
+            <div class="timezone-grid">
+                <div class="timezone-card">
+                    <h4>&#127758; Eastern Time (EST)</h4>
+                    <p class="times">1:00 PM – 7:00 PM</p>
+                </div>
+                <div class="timezone-card">
+                    <h4>&#127758; Central Time (CST)</h4>
+                    <p class="times">12:00 PM – 6:00 PM</p>
+                </div>
+                <div class="timezone-card">
+                    <h4>&#127758; Mountain Time (MST)</h4>
+                    <p class="times">11:00 AM – 5:00 PM</p>
+                </div>
+                <div class="timezone-card">
+                    <h4>&#127758; Pacific Time (PST)</h4>
+                    <p class="times">10:00 AM – 4:00 PM</p>
+                </div>
+                <div class="timezone-card">
+                    <h4>&#127802; Hawaii Time (HST)</h4>
+                    <p class="times">8:00 AM – 2:00 PM</p>
+                </div>
+                <div class="timezone-card">
+                    <h4>&#127809; Vancouver Time (PST)</h4>
+                    <p class="times">10:00 AM – 4:00 PM</p>
+                </div>
+                <div class="timezone-card">
+                    <h4>&#10052; Alaska Time (AKST)</h4>
+                    <p class="times">9:00 AM – 3:00 PM</p>
+                </div>
+            </div>
+
+            <!-- Live Now CTA with Zoom Details -->
+            <div class="live-now">
+                <h3>&#128308; If you find this during our active session, join now!</h3>
+                <p>Join our ongoing session immediately — certificates are being claimed fast</p>
+                
+                <div class="zoom-details">
+                    <p>&#127760; <strong>Meeting Link:</strong> <a href="https://zoom.us/j/8088001202" style="color: #ffd700; text-decoration: underline;">https://zoom.us/j/8088001202</a></p>
+                    <p>&#128997; <strong>Meeting ID:</strong> 8088 0012 02</p>
+                    <p>&#128274; <strong>Passcode:</strong> 8080</p>
+                </div>
+
+                <a href="https://zoom.us/j/8088001202" class="btn">Join Now</a>
+            </div>
+
+            <!-- Zoom Instructions -->
+            <div class="zoom-instructions">
+                <h4>&#128241; How to Join from Any Device</h4>
+                
+                <p><strong>If you don't have Zoom installed:</strong></p>
+                <ol>
+                    <li>Click on the meeting link (<a href="https://zoom.us/j/8088001202">https://zoom.us/j/8088001202</a>)</li>
+                    <li>Select <strong>"Join from your browser"</strong></li>
+                    <li>Click <strong>"Use Microphone & Camera"</strong></li>
+                    <li>Enter the meeting code <strong>(8088 0012 02)</strong> / Passcode <strong>(8080)</strong> & your Name</li>
+                    <li>Click <strong>JOIN</strong> & wait for the host to let you in</li>
+                </ol>
+
+                <p><strong>If Zoom is installed on your device:</strong></p>
+                <ol>
+                    <li>Launch Zoom</li>
+                    <li>Click <strong>JOIN</strong></li>
+                    <li>Enter Meeting ID <strong>(8088 0012 02)</strong> & your name</li>
+                    <li>Click <strong>Join</strong></li>
+                    <li>Enter Passcode <strong>(8080)</strong> when prompted</li>
+                </ol>
+            </div>
+
+            <div style="text-align: center; margin-top: 30px;">
+                <p style="color: #666; margin-bottom: 15px;">Can't join now? Schedule your preferred time:</p>
+                <a href="https://forms.gle/V8Gu1ipKVaxWaE7D6" class="btn btn-secondary">Schedule Next Session</a>
+            </div>
+        </div>
+
+        <!-- Bonus Section -->
+        <div class="bonus-section">
+            <h3>&#128187; Desktop Bonus: Extra $100 Rewards Certificate</h3>
+            <p>Join using your Laptop, Desktop, or Tablet for the best viewing experience and receive an additional $100 Rewards Voucher on top of your cruise certificate.</p>
+        </div>
+
+        <!-- Reviews -->
+        <div class="reviews-section">
+            <h2>&#11088; What Our Travelers Say</h2>
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <p class="review-text">"The webinar was genuinely useful — I learned how to book wholesale travel for life. The cruise voucher was just the beginning. Already booked 3 more trips at zero markup."</p>
+                    <p class="reviewer">— Jennifer R., Denver, CO</p>
+                </div>
+                <div class="review-card">
+                    <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <p class="review-text">"I appreciated the honesty about the fees. Saved $600 on our Bahamas cruise vs booking direct. Same ship, same cabin, same everything — just smarter pricing."</p>
+                    <p class="reviewer">— Michael T., Dallas, TX</p>
+                </div>
+                <div class="review-card">
+                    <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <p class="review-text">"Finally, a company that doesn't hide the ball. Paid $340 total for our cruise for two. Carnival wanted $980 for the exact same sailing. No brainer."</p>
+                    <p class="reviewer">— Robert & Lisa S., Seattle, WA</p>
+                </div>
+                <div class="review-card">
+                    <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <p class="review-text">"I was skeptical because it sounded too good. But they explained everything clearly — the activation fee, the port fees, all of it. Ended up being exactly what they said."</p>
+                    <p class="reviewer">— Amanda K., Vancouver, BC</p>
+                </div>
+                <div class="review-card">
+                    <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <p class="review-text">"The food was delicious, the room was clean, and we saved over $700. The webinar was genuinely useful even if you never cruise. Aloha Hawaii Tours delivers."</p>
+                    <p class="reviewer">— Yolanda C., New York, NY</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- TRANSPARENCY SECTION - NOW AT THE END -->
+        <div class="transparency-section">
+            <div class="transparency-header">
+                <div class="transparency-badge">Full Transparency</div>
+                <h2>Let's Address the Elephant in the Room</h2>
+                <p>"This Sounds Too Good to Be True... What's the Catch?"</p>
+            </div>
+
+            <div class="truth-box">
+                <h3>Here's the Honest Truth &#128071;</h3>
+                <p>This is <strong>not</strong> a completely complimentary cruise. We refuse to mislead you. What this <strong>is</strong>: a deeply discounted cruise certificate that removes the base cruise fare (usually the most expensive part). You'll pay a small activation fee plus mandatory port fees and taxes — the same fees everyone pays, even when booking directly with Carnival or Royal Caribbean.</p>
+            </div>
+
+            <div class="bottom-line">
+                <h4>&#9889; The Bottom Line</h4>
+                <p>Most guests save significantly compared to booking directly — typically hundreds of dollars. You get the same ship, same cabin, same meals, same entertainment — just significantly less expensive. <strong>Exact savings vary by cruise line and travel dates.</strong></p>
+            </div>
+
+            <div style="background: #ffeb3b; border: 3px solid #f57f17; border-radius: 15px; padding: 25px; margin-bottom: 40px; text-align: center;">
+                <h3 style="color: #e65100; margin: 0 0 15px 0; font-size: 22px; font-weight: 800;">&#9888; IMPORTANT DISCLAIMER</h3>
+                <p style="color: #bf360c; margin: 0 0 15px 0; font-size: 15px; line-height: 1.6; font-weight: 600;">
+                    The following is a <strong>SAMPLE COMPUTATION ONLY</strong> for illustrative purposes. 
+                    Actual costs vary significantly depending on your chosen cruise line (Carnival, Royal Caribbean, Norwegian, or Princess), 
+                    travel dates, cabin selection, and destination. 
+                </p>
+                <p style="color: #e65100; margin: 0; font-size: 15px; font-weight: 700;">
+                    &#128197; Attend our webinar for detailed pricing breakdowns<br>
+                    &#128222; Our dedicated customer service team is available to answer all your cruise certificate questions once you receive it
+                </p>
+            </div>
+
+            <h3 style="text-align: center; font-family: 'Playfair Display', Georgia, serif; font-size: 24px; margin-bottom: 30px;">Sample Cost Comparison</h3>
+            <p style="text-align: center; margin-bottom: 30px; opacity: 0.9;">5-Day/4-Night Caribbean Cruise for 2 People <em>(Estimates Only)</em></p>
+
+            <div class="comparison-container">
+                <div class="comparison-card">
+                    <div class="card-header">
+                        <span class="card-icon">&#128179;</span>
+                        <h4 class="card-title">Booking Direct</h4>
+                    </div>
+                    <div class="price-row">
+                        <span>Base Cruise Fare</span>
+                        <span class="price-value">$500–$900</span>
+                    </div>
+                    <div class="price-row">
+                        <span>Port Fees & Taxes</span>
+                        <span class="price-value">$200–$300</span>
+                    </div>
+                    <div class="total-row">
+                        <span>Total Cost</span>
+                        <span class="total-value">$700–$1,200</span>
+                    </div>
+                </div>
+
+                <div class="comparison-card">
+                    <div class="card-header">
+                        <span class="card-icon">&#127903;</span>
+                        <h4 class="card-title">With Our Voucher</h4>
+                    </div>
+                    <div class="price-row">
+                        <span>Base Cruise Fare</span>
+                        <span class="price-value price-zero">$0 &#10003;</span>
+                    </div>
+                    <div class="price-row">
+                        <span>Activation Fee ($49 × 2)</span>
+                        <span class="price-value">$98</span>
+                    </div>
+                    <div class="price-row">
+                        <span>Port Fees & Taxes</span>
+                        <span class="price-value">$200–$300</span>
+                    </div>
+                    <div class="total-row">
+                        <span>Your Total</span>
+                        <span class="total-value">$298–$398</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="savings-highlight">
+                <h3>&#128176; Sample Savings: $300–$800</h3>
+                <p>Same cruise line. Same ship. Same cabin. Same experience.</p>
+                <p style="font-size: 12px; margin-top: 10px; opacity: 0.8; font-weight: 600; color: #1e3c72;">*Actual savings vary by cruise line, dates, and cabin type</p>
+            </div>
+
+            <div class="why-section">
+                <h3>Why Do These Vouchers Exist? &#129300;</h3>
+                <div class="why-grid">
+                    <div class="why-card">
+                        <h4>&#128674; Cruise Lines Hate Empty Cabins</h4>
+                        <p>A cabin sailing empty generates $0 revenue. Cruise lines partner with platforms like ours to fill unsold inventory at deeply discounted rates.</p>
+                    </div>
+                    <div class="why-card">
+                        <h4>&#127919; You're Trying the Product</h4>
+                        <p>Cruise lines know that if you love this cruise (at a discount), you'll book future cruises at full price. It's a long-term relationship.</p>
+                    </div>
+                    <div class="why-card">
+                        <h4>&#128202; Wholesale Travel Platform</h4>
+                        <p>During our 45-minute webinar, we'll show you exactly how to access wholesale rates on hotels, cruises, and vacations — zero markups, forever.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Important Info -->
+        <div class="important-info">
+            <h4>&#9888; Important Details</h4>
+            <ul>
+                <li><strong>No Cost to Attend:</strong> The webinar is complimentary — you pay nothing to join</li>
+                <li><strong>No Purchase Required:</strong> Receive your certificate just for attending</li>
+                <li><strong>Not a Timeshare:</strong> Zero sales presentations, zero pressure</li>
+                <li><strong>No Membership Obligation:</strong> Learn the platform, use it if you want</li>
+                <li><strong>Certificate Emailed Same Day:</strong> Receive it immediately after the session</li>
+                <li><strong>24 Months to Use:</strong> Plan your perfect cruise when you're ready</li>
+                <li><strong>Safety First:</strong> Do not join while driving or working</li>
+                <li><strong>Join Early:</strong> Connect 10-15 minutes before to avoid queue</li>
+            </ul>
+        </div>
+
+        <!-- Referral -->
+        <div class="referral-section">
+            <h3>&#127873; Know Someone Who'd Love This?</h3>
+            <p>Share this transparent offer with friends who appreciate honest deals.</p>
+            <a href="https://rebrand.ly/TravelReferral" class="btn" style="background: white; color: #667eea;">Share With Friends</a>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <h3>Aloha Hawaii Tours & Travel</h3>
+            <p>Transparent Travel Savings Since Day One</p>
+            <p class="footer-phone">(808) 736-4742</p>
+            <p style="font-size: 12px; opacity: 0.7; margin-top: 20px;">
+                Certificate valid for 24 months from issue date<br>
+                This offer is not affiliated with or endorsed by any cruise line.
+            </p>
+        </div>
+    </div>
 </body>
 </html>
