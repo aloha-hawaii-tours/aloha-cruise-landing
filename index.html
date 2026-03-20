@@ -35,7 +35,6 @@
             padding: 0 20px;
         }
         
-        /* Header */
         .header {
             background: var(--dark);
             color: white;
@@ -61,7 +60,6 @@
             display: block;
         }
         
-        /* Hero Section */
         .hero {
             background: var(--gradient);
             color: white;
@@ -95,21 +93,14 @@
             text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
         }
         
-        .hero .subtitle {
-            font-size: 1.3rem;
-            margin-bottom: 10px;
-            opacity: 0.95;
-            font-weight: 300;
-        }
-        
         .hero .invite-text {
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             margin-bottom: 15px;
-            opacity: 0.9;
+            opacity: 0.95;
             max-width: 700px;
             margin-left: auto;
             margin-right: auto;
-            line-height: 1.5;
+            line-height: 1.4;
         }
         
         .hero .time-commitment {
@@ -119,7 +110,7 @@
             padding: 10px 25px;
             border-radius: 50px;
             font-weight: 700;
-            margin-top: 15px;
+            margin-top: 10px;
             font-size: 1.1rem;
             backdrop-filter: blur(10px);
         }
@@ -142,7 +133,6 @@
             border: 1px solid rgba(255,255,255,0.3);
         }
         
-        /* Live Status Section */
         .live-section {
             background: white;
             margin: -30px auto 40px;
@@ -249,7 +239,6 @@
             border-left: 4px solid var(--primary);
         }
         
-        /* CTA Section */
         .cta-section {
             margin: 30px 0;
         }
@@ -332,15 +321,15 @@
         
         .bonus-title {
             font-size: 1.2rem;
-            margin-bottom: 8px;
+            margin-bottom: 5px;
             text-transform: uppercase;
             letter-spacing: 1px;
         }
         
         .bonus-additional {
-            font-size: 1rem;
-            font-weight: 700;
-            margin-top: 5px;
+            font-size: 1.1rem;
+            font-weight: 800;
+            margin: 5px 0;
             color: #333;
         }
         
@@ -351,7 +340,6 @@
             color: #555;
         }
         
-        /* Zoom Details */
         .zoom-details {
             background: #f8f9fa;
             border: 2px solid #dee2e6;
@@ -415,7 +403,6 @@
             text-decoration: underline;
         }
         
-        /* Incentives Section */
         .section {
             background: white;
             padding: 50px 0;
@@ -563,7 +550,6 @@
             color: #856404;
         }
         
-        /* Trust Section */
         .trust-section {
             background: var(--dark);
             color: white;
@@ -598,7 +584,6 @@
             color: #ffd700;
         }
         
-        /* Footer */
         .footer {
             background: #121220;
             color: #aaa;
@@ -622,36 +607,6 @@
             text-align: left;
         }
         
-        /* Mobile Optimizations */
-        @media (max-width: 600px) {
-            .hero h2 {
-                font-size: 1.7rem;
-            }
-            
-            .hero .subtitle {
-                font-size: 1.1rem;
-            }
-            
-            .hero .invite-text {
-                font-size: 1rem;
-            }
-            
-            .timezone-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 8px;
-            }
-            
-            .btn {
-                font-size: 1rem;
-                padding: 16px 20px;
-            }
-            
-            .section-title {
-                font-size: 1.5rem;
-            }
-        }
-        
-        /* Urgency Banner */
         .urgency-banner {
             background: #e74c3c;
             color: white;
@@ -667,6 +622,30 @@
         
         .urgency-banner.show {
             display: block;
+        }
+        
+        @media (max-width: 600px) {
+            .hero h2 {
+                font-size: 1.7rem;
+            }
+            
+            .hero .invite-text {
+                font-size: 1.05rem;
+            }
+            
+            .timezone-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 8px;
+            }
+            
+            .btn {
+                font-size: 1rem;
+                padding: 16px 20px;
+            }
+            
+            .section-title {
+                font-size: 1.5rem;
+            }
         }
     </style>
 </head>
@@ -699,21 +678,15 @@
 
     <div class="container">
         <div class="live-section">
-            <div class="status-indicator" id="statusIndicator">
-                <!-- Populated by JavaScript -->
-            </div>
+            <div class="status-indicator" id="statusIndicator"></div>
 
             <div class="time-commitment-highlight">
                 🎯 Simply watch our 45-minute travel presentation and your preferred vacation voucher will be emailed to you within the day!
             </div>
 
-            <div class="timezone-grid" id="timezoneGrid">
-                <!-- Populated by JavaScript -->
-            </div>
+            <div class="timezone-grid" id="timezoneGrid"></div>
 
-            <div class="current-local" id="currentLocal">
-                <!-- Populated by JavaScript -->
-            </div>
+            <div class="current-local" id="currentLocal"></div>
 
             <div class="cta-section" id="ctaSection">
                 <a href="https://zoom.us/my/alohatravel?pwd=ckhzbFk5ZElBSjhxSDF1YkpVOGRCZz09" class="btn btn-primary" id="joinBtn">
@@ -774,7 +747,6 @@
             </div>
 
             <div class="incentives-grid">
-                <!-- Cruise Card -->
                 <div class="incentive-card">
                     <span class="card-badge">Most Popular</span>
                     <img src="https://kimi-web-img.moonshot.cn/img/assets.dm.rccl.com/3211d1ddf0aade70a7043fdd5551b95dc6b71509.jpg" alt="Luxury Cruise Ship" class="card-image">
@@ -795,7 +767,6 @@
                     </div>
                 </div>
 
-                <!-- Hawaii Card -->
                 <div class="incentive-card">
                     <img src="https://kimi-web-img.moonshot.cn/img/assets.hyatt.com/c978a72ab48426c8dc76df9e0daea94d984a7104.jpg" alt="Hawaii Resort" class="card-image">
                     <div class="card-content">
@@ -815,7 +786,6 @@
                     </div>
                 </div>
 
-                <!-- Puerto Plata Card -->
                 <div class="incentive-card">
                     <img src="https://kimi-web-img.moonshot.cn/img/media-cdn.tripadvisor.com/a8b1c5ee366b97abdd214af9bb1eff7bdd4d9580.jpg" alt="Puerto Plata Resort" class="card-image">
                     <div class="card-content">
@@ -835,7 +805,6 @@
                     </div>
                 </div>
 
-                <!-- Mexico Card -->
                 <div class="incentive-card">
                     <img src="https://kimi-web-img.moonshot.cn/img/www.travelandleisure.com/383243dc958b415672afd63b9c00b13257199273.jpg" alt="Cancun Resort" class="card-image">
                     <div class="card-content">
@@ -855,7 +824,6 @@
                     </div>
                 </div>
 
-                <!-- US Hotels Card -->
                 <div class="incentive-card">
                     <img src="https://kimi-web-img.moonshot.cn/img/dynamic-media-cdn.tripadvisor.com/0fddd11d9afa5063d5fc4e9017956e08a24c7c56.jpg" alt="US Hotel" class="card-image">
                     <div class="card-content">
@@ -920,7 +888,6 @@
 
     <script>
         function formatTimeRange(startHour, endHour) {
-            // Convert 24h to 12h format with AM/PM
             const formatHour = (h) => {
                 const ampm = h >= 12 ? 'PM' : 'AM';
                 const h12 = h % 12 || 12;
@@ -934,7 +901,6 @@
             const now = new Date();
             const etTime = new Date(now.toLocaleString("en-US", {timeZone: "America/New_York"}));
             
-            // Check if currently live (2pm-8pm ET)
             const etHour = etTime.getHours();
             const isLive = etHour >= 14 && etHour < 20;
             
@@ -976,15 +942,14 @@
                 urgencyBanner.classList.remove('show');
             }
             
-            // Timezone conversions - all showing proper AM/PM
             const timezones = [
-                { name: 'Eastern', start: 14, end: 20 },      // 2PM - 8PM
-                { name: 'Central', start: 13, end: 19 },      // 1PM - 7PM
-                { name: 'Mountain', start: 12, end: 18 },     // 12PM - 6PM
-                { name: 'Pacific', start: 11, end: 17 },      // 11AM - 5PM
-                { name: 'Alaska', start: 10, end: 16 },       // 10AM - 4PM
-                { name: 'Hawaii', start: 8, end: 14 },        // 8AM - 2PM
-                { name: 'Vancouver', start: 11, end: 17 }     // 11AM - 5PM
+                { name: 'Eastern', start: 14, end: 20 },
+                { name: 'Central', start: 13, end: 19 },
+                { name: 'Mountain', start: 12, end: 18 },
+                { name: 'Pacific', start: 11, end: 17 },
+                { name: 'Alaska', start: 10, end: 16 },
+                { name: 'Hawaii', start: 8, end: 14 },
+                { name: 'Vancouver', start: 11, end: 17 }
             ];
             
             const grid = document.getElementById('timezoneGrid');
@@ -1000,7 +965,6 @@
                 grid.appendChild(div);
             });
             
-            // Current local time display
             const localOptions = { 
                 weekday: 'long', 
                 year: 'numeric', 
@@ -1020,7 +984,6 @@
             details.classList.toggle('active');
         }
         
-        // Update immediately and then every minute
         updateTimezones();
         setInterval(updateTimezones, 60000);
     </script>
