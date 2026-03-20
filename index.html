@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Exclusive Travel Webinar - Learn to book hotels and cruises at zero markups. Receive complimentary vacation certificates.">
+    <meta name="description" content="Exclusive Travel Webinar - 45 minutes to learn zero-markup travel. Receive complimentary vacation certificates.">
     <title>Exclusive Travel Access | Aloha Hawaii Tours & Travel</title>
     <style>
         * {
@@ -97,9 +97,21 @@
         
         .hero .subtitle {
             font-size: 1.3rem;
-            margin-bottom: 20px;
+            margin-bottom: 10px;
             opacity: 0.95;
             font-weight: 300;
+        }
+        
+        .hero .time-commitment {
+            background: rgba(255,215,0,0.2);
+            border: 2px solid rgba(255,215,0,0.5);
+            display: inline-block;
+            padding: 10px 25px;
+            border-radius: 50px;
+            font-weight: 700;
+            margin-top: 15px;
+            font-size: 1.1rem;
+            backdrop-filter: blur(10px);
         }
         
         .badge-group {
@@ -172,9 +184,20 @@
             font-size: 1.1rem;
         }
         
+        .time-commitment-highlight {
+            background: linear-gradient(135deg, #fff9e6 0%, #fff3cd 100%);
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+            font-weight: 600;
+            color: #856404;
+            text-align: center;
+        }
+        
         .timezone-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
             gap: 12px;
             margin: 25px 0;
             background: #f8f9fa;
@@ -185,7 +208,7 @@
         
         .timezone-item {
             text-align: center;
-            padding: 10px;
+            padding: 12px;
             background: white;
             border-radius: 8px;
             border-left: 4px solid var(--accent);
@@ -201,7 +224,7 @@
         }
         
         .tz-time {
-            font-size: 1.1rem;
+            font-size: 1rem;
             font-weight: 800;
             color: var(--dark);
             margin-top: 5px;
@@ -267,7 +290,7 @@
         .bonus-banner {
             background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
             color: var(--dark);
-            padding: 15px;
+            padding: 20px;
             border-radius: 10px;
             text-align: center;
             margin-top: 20px;
@@ -280,7 +303,7 @@
         .bonus-banner::before {
             content: '★';
             position: absolute;
-            left: 10px;
+            left: 15px;
             top: 50%;
             transform: translateY(-50%);
             font-size: 2rem;
@@ -290,11 +313,25 @@
         .bonus-banner::after {
             content: '★';
             position: absolute;
-            right: 10px;
+            right: 15px;
             top: 50%;
             transform: translateY(-50%);
             font-size: 2rem;
             opacity: 0.3;
+        }
+        
+        .bonus-title {
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .bonus-reason {
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-top: 8px;
+            color: #555;
         }
         
         /* Zoom Details */
@@ -384,6 +421,28 @@
             max-width: 600px;
             margin-left: auto;
             margin-right: auto;
+        }
+        
+        .voucher-process {
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+            border: 2px solid #4caf50;
+            border-radius: 15px;
+            padding: 25px;
+            margin: 30px auto;
+            max-width: 700px;
+            text-align: center;
+        }
+        
+        .voucher-process h3 {
+            color: #2e7d32;
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+        
+        .voucher-process p {
+            color: #1b5e20;
+            font-size: 1.1rem;
+            font-weight: 600;
         }
         
         .incentives-grid {
@@ -600,17 +659,19 @@
     </div>
 
     <div class="urgency-banner" id="urgencyBanner">
-        🔴 LIVE SESSION IN PROGRESS! Join now to claim your exclusive rewards
+        🔴 LIVE SESSION IN PROGRESS! Join now to make your 45 minutes worth it
     </div>
 
     <section class="hero">
         <div class="container hero-content">
-            <h2>Unlock Exclusive Travel Rates</h2>
-            <p class="subtitle">Discover How to Book Hotels & Cruises at ZERO Markups</p>
+            <h2>Make Your 45 Minutes Worth It</h2>
+            <p class="subtitle">Unlock Exclusive Travel Rates at ZERO Markups</p>
+            <div class="time-commitment">⏱️ Just 45 Minutes of Your Time</div>
             <div class="badge-group">
+                <span class="badge">✓ Watch & Receive Voucher</span>
                 <span class="badge">✓ No Timeshare</span>
                 <span class="badge">✓ No Membership Fees</span>
-                <span class="badge">✓ No Cost to Attend</span>
+                <span class="badge">✓ Emailed Same Day</span>
             </div>
         </div>
     </section>
@@ -619,6 +680,10 @@
         <div class="live-section">
             <div class="status-indicator" id="statusIndicator">
                 <!-- Populated by JavaScript -->
+            </div>
+
+            <div class="time-commitment-highlight">
+                🎯 Simply watch our 45-minute travel presentation and your preferred vacation voucher will be emailed to you immediately after!
             </div>
 
             <div class="timezone-grid" id="timezoneGrid">
@@ -635,7 +700,9 @@
                 </a>
                 
                 <div class="bonus-banner" id="bonusBanner">
-                    💻 BONUS: $100 Rewards Certificate when you join via Laptop, Desktop, or Tablet!
+                    <div class="bonus-title">💻 $100 Bonus Rewards Certificate</div>
+                    <div>Use your Laptop, Desktop, or Tablet</div>
+                    <div class="bonus-reason">Wider screen = Better viewing experience for our presentation</div>
                 </div>
 
                 <a href="https://forms.gle/hraJz8c5kj61b4Jd6" class="btn btn-secondary" id="reserveBtn">
@@ -677,7 +744,12 @@
     <section class="section">
         <div class="container">
             <h2 class="section-title">Choose Your Exclusive Travel Incentive</h2>
-            <p class="section-subtitle">Attend our 45-minute webinar and select one premium vacation certificate as our token of appreciation. Redeem now, travel later.</p>
+            <p class="section-subtitle">Make your 45 minutes worth it! Attend our quick travel webinar and select one premium vacation certificate as our token of appreciation.</p>
+
+            <div class="voucher-process">
+                <h3>📧 How It Works</h3>
+                <p>1️⃣ Watch our 45-minute presentation → 2️⃣ Select your preferred destination → 3️⃣ Receive your voucher via email same day!</p>
+            </div>
 
             <div class="incentives-grid">
                 <!-- Cruise Card -->
@@ -693,7 +765,7 @@
                             <li>Vegas-style entertainment included</li>
                             <li>Valid for 24 months</li>
                             <li>Fully transferable before activation</li>
-                            <li>Emailed same day after session</li>
+                            <li>Emailed same day after your 45-min session</li>
                         </ul>
                         <div class="highlight-box">
                             <strong>No Onboard Sales Presentations</strong> - Guaranteed! This is not a timeshare offer.
@@ -712,7 +784,7 @@
                             <li>Accommodates 2 adults (extra guests allowed)</li>
                             <li>Marriott, Hyatt, Hilton, Wyndham, IHG & more</li>
                             <li>18-month validity period</li>
-                            <li>Voucher issued immediately via email</li>
+                            <li>Voucher issued immediately via email after viewing</li>
                             <li>Redeem now, travel later flexibility</li>
                         </ul>
                         <div class="highlight-box">
@@ -753,7 +825,7 @@
                             <li>Luxury brands: Accor, Hyatt, Hilton, Marriott, Wyndham</li>
                             <li>Beachfront locations</li>
                             <li>Valid 18 months from issue</li>
-                            <li>Emailed immediately after webinar</li>
+                            <li>Emailed immediately after your 45-minute webinar</li>
                         </ul>
                         <div class="highlight-box">
                             Choose your preferred Mexican destination after qualification.
@@ -773,7 +845,7 @@
                             <li>Perfect for weekend getaways</li>
                             <li>Valid 18 months after activation</li>
                             <li>Simple online booking via RedeemVacations</li>
-                            <li>Certificate emailed same day</li>
+                            <li>Certificate emailed same day after attendance</li>
                         </ul>
                         <div class="highlight-box">
                             Includes Orlando resort options (4-day getaway) and San Diego (3-night stay).
@@ -786,8 +858,14 @@
 
     <section class="trust-section">
         <div class="container">
-            <h2 class="section-title" style="color: white;">Why Attend Our Webinar?</h2>
+            <h2 class="section-title" style="color: white;">Make Your 45 Minutes Count</h2>
+            <p style="color: #ccc; max-width: 600px; margin: 0 auto 30px;">Just one quick session and you'll have exclusive travel knowledge plus a vacation certificate in your inbox. No strings attached.</p>
             <div class="trust-grid">
+                <div class="trust-item">
+                    <div class="trust-icon">⏱️</div>
+                    <div class="trust-title">Only 45 Minutes</div>
+                    <p>Quick, informative presentation that respects your time. No long sales pitches.</p>
+                </div>
                 <div class="trust-item">
                     <div class="trust-icon">💯</div>
                     <div class="trust-title">No Timeshare</div>
@@ -796,7 +874,7 @@
                 <div class="trust-item">
                     <div class="trust-icon">🎁</div>
                     <div class="trust-title">No Cost to Attend</div>
-                    <p>There is absolutely no charge to participate in our 45-minute travel education session.</p>
+                    <p>There is absolutely no charge to participate. Simply watch and receive your voucher.</p>
                 </div>
                 <div class="trust-item">
                     <div class="trust-icon">✓</div>
@@ -819,6 +897,17 @@
     </footer>
 
     <script>
+        function formatTimeRange(startHour, endHour) {
+            // Convert 24h to 12h format with AM/PM
+            const formatHour = (h) => {
+                const ampm = h >= 12 ? 'PM' : 'AM';
+                const h12 = h % 12 || 12;
+                return h12 + ampm;
+            };
+            
+            return formatHour(startHour) + ' to ' + formatHour(endHour);
+        }
+        
         function updateTimezones() {
             const now = new Date();
             const etTime = new Date(now.toLocaleString("en-US", {timeZone: "America/New_York"}));
@@ -838,7 +927,7 @@
                         <span class="pulse-dot"></span>
                         <span>🔴 LIVE NOW</span>
                     </div>
-                    <p style="margin-top: 10px; color: #666;">We're currently in session! Join instantly below.</p>
+                    <p style="margin-top: 10px; color: #666; font-weight: 600;">Make your 45 minutes worth it! Join instantly below.</p>
                 `;
                 joinBtn.classList.remove('btn-hidden');
                 reserveBtn.classList.add('btn-hidden');
@@ -856,7 +945,8 @@
                 statusDiv.innerHTML = `
                     <div class="next-session">
                         <strong>Next Live Session:</strong><br>
-                        <span style="font-size: 1.3rem; color: var(--primary); font-weight: 800;">${dateStr} at 2:00 PM ET</span>
+                        <span style="font-size: 1.3rem; color: var(--primary); font-weight: 800;">${dateStr} at 2PM to 8PM Eastern</span>
+                        <p style="margin-top: 8px; font-size: 0.95rem; color: #666;">Just 45 minutes of your time!</p>
                     </div>
                 `;
                 joinBtn.classList.add('btn-hidden');
@@ -864,33 +954,26 @@
                 urgencyBanner.classList.remove('show');
             }
             
-            // Timezone conversions
+            // Timezone conversions - all showing proper AM/PM
             const timezones = [
-                { name: 'Eastern', zone: 'America/New_York', start: 14 },
-                { name: 'Central', zone: 'America/Chicago', start: 13 },
-                { name: 'Mountain', zone: 'America/Denver', start: 12 },
-                { name: 'Pacific', zone: 'America/Los_Angeles', start: 11 },
-                { name: 'Alaska', zone: 'America/Anchorage', start: 10 },
-                { name: 'Hawaii', zone: 'Pacific/Honolulu', start: 8 },
-                { name: 'Vancouver', zone: 'America/Vancouver', start: 11 }
+                { name: 'Eastern', start: 14, end: 20 },      // 2PM - 8PM
+                { name: 'Central', start: 13, end: 19 },      // 1PM - 7PM
+                { name: 'Mountain', start: 12, end: 18 },     // 12PM - 6PM
+                { name: 'Pacific', start: 11, end: 17 },      // 11AM - 5PM
+                { name: 'Alaska', start: 10, end: 16 },       // 10AM - 4PM
+                { name: 'Hawaii', start: 8, end: 14 },        // 8AM - 2PM
+                { name: 'Vancouver', start: 11, end: 17 }     // 11AM - 5PM
             ];
             
             const grid = document.getElementById('timezoneGrid');
             grid.innerHTML = '';
             
             timezones.forEach(tz => {
-                const timeInZone = new Date(now.toLocaleString("en-US", {timeZone: tz.zone}));
-                const hour = tz.start;
-                const ampm = hour >= 12 ? 'PM' : 'AM';
-                const displayHour = hour > 12 ? hour - 12 : hour;
-                const endHour = (hour + 6) > 12 ? (hour + 6) - 12 : hour + 6;
-                const endAmpm = (hour + 6) >= 12 ? 'PM' : 'AM';
-                
                 const div = document.createElement('div');
                 div.className = 'timezone-item';
                 div.innerHTML = `
                     <div class="tz-label">${tz.name}</div>
-                    <div class="tz-time">${displayHour}-${endHour} ${ampm}</div>
+                    <div class="tz-time">${formatTimeRange(tz.start, tz.end)}</div>
                 `;
                 grid.appendChild(div);
             });
