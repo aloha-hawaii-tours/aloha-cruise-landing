@@ -11,7 +11,7 @@
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         :root {
             --primary: #0066cc;
             --secondary: #ff6b35;
@@ -21,54 +21,81 @@
             --gradient: linear-gradient(135deg, #0066cc 0%, #00a8a8 100%);
             --shadow: 0 10px 30px rgba(0,0,0,0.1);
         }
-        
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
             color: #333;
             background: #f0f4f8;
         }
-        
+
         .container {
             max-width: 900px;
             margin: 0 auto;
             padding: 0 20px;
         }
-        
+
+        /* Header with Travel Image */
         .header {
-            background: var(--dark);
-            color: white;
-            padding: 15px 0;
-            text-align: center;
             position: sticky;
             top: 0;
             z-index: 100;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
         }
-        
-        .header h1 {
-            font-size: 1.5rem;
-            font-weight: 700;
+
+        .header-image {
+            width: 100%;
+            height: 200px;
+            background: url('https://kimi-web-img.moonshot.cn/img/t4.ftcdn.net/127dfcb4dab813cba73552d8d50361e981c26f11.jpg') center/cover no-repeat;
+            position: relative;
+        }
+
+        .header-image::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.6) 100%);
+        }
+
+        .header-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 20px;
+            z-index: 2;
+            text-align: center;
+        }
+
+        .header-content h1 {
+            color: white;
+            font-size: 1.8rem;
+            font-weight: 800;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
             letter-spacing: 0.5px;
         }
-        
-        .header .phone {
+
+        .header-content .tagline {
             color: #ffd700;
             font-weight: 600;
-            font-size: 1.1rem;
+            font-size: 1rem;
             margin-top: 5px;
-            display: block;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
         }
-        
+
+        /* Hero Section */
         .hero {
             background: var(--gradient);
             color: white;
-            padding: 60px 0 40px;
+            padding: 50px 0 35px;
             text-align: center;
             position: relative;
             overflow: hidden;
         }
-        
+
         .hero::before {
             content: '';
             position: absolute;
@@ -80,29 +107,41 @@
             background-size: 20px 20px;
             opacity: 0.3;
         }
-        
+
         .hero-content {
             position: relative;
             z-index: 1;
         }
-        
+
         .hero h2 {
-            font-size: 2.2rem;
-            margin-bottom: 15px;
+            font-size: 2rem;
+            margin-bottom: 12px;
             font-weight: 800;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
         }
-        
+
         .hero .invite-text {
-            font-size: 1.2rem;
-            margin-bottom: 15px;
+            font-size: 1.15rem;
+            margin-bottom: 12px;
             opacity: 0.95;
             max-width: 700px;
             margin-left: auto;
             margin-right: auto;
-            line-height: 1.4;
+            line-height: 1.5;
         }
-        
+
+        .hero .watch-info {
+            background: rgba(255,255,255,0.15);
+            border: 1px solid rgba(255,255,255,0.3);
+            border-radius: 10px;
+            padding: 12px 20px;
+            margin: 15px auto 0;
+            max-width: 650px;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            backdrop-filter: blur(5px);
+        }
+
         .hero .time-commitment {
             background: rgba(255,215,0,0.2);
             border: 2px solid rgba(255,215,0,0.5);
@@ -110,11 +149,11 @@
             padding: 10px 25px;
             border-radius: 50px;
             font-weight: 700;
-            margin-top: 10px;
+            margin-top: 15px;
             font-size: 1.1rem;
             backdrop-filter: blur(10px);
         }
-        
+
         .badge-group {
             display: flex;
             flex-wrap: wrap;
@@ -122,7 +161,7 @@
             gap: 10px;
             margin-top: 20px;
         }
-        
+
         .badge {
             background: rgba(255,255,255,0.2);
             backdrop-filter: blur(10px);
@@ -132,7 +171,8 @@
             font-weight: 600;
             border: 1px solid rgba(255,255,255,0.3);
         }
-        
+
+        /* Live Status Section */
         .live-section {
             background: white;
             margin: -30px auto 40px;
@@ -143,12 +183,12 @@
             z-index: 10;
             max-width: 95%;
         }
-        
+
         .status-indicator {
             text-align: center;
             margin-bottom: 25px;
         }
-        
+
         .live-pulse {
             display: inline-flex;
             align-items: center;
@@ -158,12 +198,12 @@
             color: #e74c3c;
             animation: pulse 2s infinite;
         }
-        
+
         @keyframes pulse {
             0%, 100% { opacity: 1; }
             50% { opacity: 0.7; }
         }
-        
+
         .pulse-dot {
             width: 15px;
             height: 15px;
@@ -172,18 +212,38 @@
             box-shadow: 0 0 0 0 rgba(231, 76, 60, 0.7);
             animation: pulse-ring 2s infinite;
         }
-        
+
         @keyframes pulse-ring {
             0% { box-shadow: 0 0 0 0 rgba(231, 76, 60, 0.7); }
             70% { box-shadow: 0 0 0 10px rgba(231, 76, 60, 0); }
             100% { box-shadow: 0 0 0 0 rgba(231, 76, 60, 0); }
         }
-        
+
+        .not-live-message {
+            text-align: center;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            border: 2px solid #dee2e6;
+            margin-bottom: 20px;
+        }
+
+        .not-live-message h3 {
+            color: #666;
+            font-size: 1.3rem;
+            margin-bottom: 8px;
+        }
+
+        .not-live-message p {
+            color: #888;
+            font-size: 1rem;
+        }
+
         .next-session {
             color: #666;
             font-size: 1.1rem;
         }
-        
+
         .time-commitment-highlight {
             background: linear-gradient(135deg, #fff9e6 0%, #fff3cd 100%);
             border-left: 4px solid #ffc107;
@@ -194,7 +254,7 @@
             color: #856404;
             text-align: center;
         }
-        
+
         .timezone-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
@@ -205,7 +265,7 @@
             border-radius: 10px;
             border: 2px solid #e9ecef;
         }
-        
+
         .timezone-item {
             text-align: center;
             padding: 12px;
@@ -214,7 +274,7 @@
             border-left: 4px solid var(--accent);
             box-shadow: 0 2px 5px rgba(0,0,0,0.05);
         }
-        
+
         .tz-label {
             font-size: 0.75rem;
             color: #666;
@@ -222,14 +282,14 @@
             letter-spacing: 0.5px;
             font-weight: 700;
         }
-        
+
         .tz-time {
             font-size: 1rem;
             font-weight: 800;
             color: var(--dark);
             margin-top: 5px;
         }
-        
+
         .current-local {
             text-align: center;
             margin-top: 15px;
@@ -238,11 +298,12 @@
             border-radius: 8px;
             border-left: 4px solid var(--primary);
         }
-        
+
+        /* CTA Section */
         .cta-section {
             margin: 30px 0;
         }
-        
+
         .btn {
             display: inline-flex;
             align-items: center;
@@ -260,32 +321,47 @@
             letter-spacing: 0.5px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         }
-        
+
         .btn-primary {
             background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
             color: white;
             margin-bottom: 15px;
         }
-        
+
         .btn-primary:hover {
             transform: translateY(-2px);
             box-shadow: 0 6px 20px rgba(255,107,53,0.4);
         }
-        
+
         .btn-secondary {
             background: var(--primary);
             color: white;
         }
-        
+
         .btn-secondary:hover {
             background: #0052a3;
             transform: translateY(-2px);
         }
-        
+
+        .btn-pulse {
+            animation: btn-pulse 2s infinite;
+        }
+
+        @keyframes btn-pulse {
+            0%, 100% { 
+                box-shadow: 0 4px 15px rgba(0,102,204,0.4);
+                transform: scale(1);
+            }
+            50% { 
+                box-shadow: 0 6px 25px rgba(0,102,204,0.6);
+                transform: scale(1.02);
+            }
+        }
+
         .btn-hidden {
             display: none;
         }
-        
+
         .bonus-banner {
             background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
             color: var(--dark);
@@ -298,7 +374,7 @@
             position: relative;
             overflow: hidden;
         }
-        
+
         .bonus-banner::before {
             content: '★';
             position: absolute;
@@ -308,7 +384,7 @@
             font-size: 2rem;
             opacity: 0.3;
         }
-        
+
         .bonus-banner::after {
             content: '★';
             position: absolute;
@@ -318,28 +394,29 @@
             font-size: 2rem;
             opacity: 0.3;
         }
-        
+
         .bonus-title {
             font-size: 1.2rem;
             margin-bottom: 5px;
             text-transform: uppercase;
             letter-spacing: 1px;
         }
-        
+
         .bonus-additional {
             font-size: 1.1rem;
             font-weight: 800;
             margin: 5px 0;
             color: #333;
         }
-        
+
         .bonus-reason {
             font-size: 0.95rem;
             font-weight: 600;
             margin-top: 8px;
             color: #555;
         }
-        
+
+        /* Zoom Details */
         .zoom-details {
             background: #f8f9fa;
             border: 2px solid #dee2e6;
@@ -348,18 +425,18 @@
             margin-top: 25px;
             display: none;
         }
-        
+
         .zoom-details.active {
             display: block;
         }
-        
+
         .zoom-details h3 {
             color: var(--dark);
             margin-bottom: 15px;
             font-size: 1.2rem;
             text-align: center;
         }
-        
+
         .detail-row {
             display: flex;
             align-items: center;
@@ -369,31 +446,31 @@
             border-radius: 8px;
             border-left: 4px solid var(--secondary);
         }
-        
+
         .detail-icon {
             font-size: 1.5rem;
             margin-right: 15px;
             width: 30px;
             text-align: center;
         }
-        
+
         .detail-content {
             flex: 1;
         }
-        
+
         .detail-label {
             font-size: 0.8rem;
             color: #666;
             text-transform: uppercase;
             font-weight: 700;
         }
-        
+
         .detail-value {
             font-weight: 700;
             color: var(--dark);
             word-break: break-all;
         }
-        
+
         .toggle-zoom {
             text-align: center;
             margin-top: 15px;
@@ -402,13 +479,14 @@
             font-weight: 600;
             text-decoration: underline;
         }
-        
+
+        /* Incentives Section */
         .section {
             background: white;
             padding: 50px 0;
             margin-bottom: 30px;
         }
-        
+
         .section-title {
             text-align: center;
             font-size: 1.8rem;
@@ -416,7 +494,7 @@
             margin-bottom: 15px;
             font-weight: 800;
         }
-        
+
         .section-subtitle {
             text-align: center;
             color: #666;
@@ -426,7 +504,7 @@
             margin-left: auto;
             margin-right: auto;
         }
-        
+
         .voucher-process {
             background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
             border: 2px solid #4caf50;
@@ -436,25 +514,25 @@
             max-width: 700px;
             text-align: center;
         }
-        
+
         .voucher-process h3 {
             color: #2e7d32;
             margin-bottom: 10px;
             font-size: 1.3rem;
         }
-        
+
         .voucher-process p {
             color: #1b5e20;
             font-size: 1.1rem;
             font-weight: 600;
         }
-        
+
         .incentives-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 25px;
         }
-        
+
         .incentive-card {
             background: white;
             border-radius: 15px;
@@ -464,23 +542,23 @@
             border: 1px solid #e9ecef;
             position: relative;
         }
-        
+
         .incentive-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 15px 40px rgba(0,0,0,0.15);
         }
-        
+
         .card-image {
             width: 100%;
             height: 200px;
             object-fit: cover;
             display: block;
         }
-        
+
         .card-content {
             padding: 25px;
         }
-        
+
         .card-badge {
             position: absolute;
             top: 15px;
@@ -494,7 +572,7 @@
             text-transform: uppercase;
             box-shadow: 0 2px 10px rgba(0,0,0,0.2);
         }
-        
+
         .card-title {
             font-size: 1.3rem;
             color: var(--dark);
@@ -502,7 +580,7 @@
             font-weight: 700;
             line-height: 1.3;
         }
-        
+
         .card-meta {
             color: var(--accent);
             font-weight: 700;
@@ -512,12 +590,12 @@
             align-items: center;
             gap: 5px;
         }
-        
+
         .card-features {
             list-style: none;
             margin-bottom: 20px;
         }
-        
+
         .card-features li {
             padding: 8px 0;
             padding-left: 25px;
@@ -526,11 +604,11 @@
             color: #555;
             border-bottom: 1px solid #f0f0f0;
         }
-        
+
         .card-features li:last-child {
             border-bottom: none;
         }
-        
+
         .card-features li::before {
             content: '✓';
             position: absolute;
@@ -539,7 +617,7 @@
             font-weight: 800;
             font-size: 1.1rem;
         }
-        
+
         .highlight-box {
             background: linear-gradient(135deg, #fff9e6 0%, #fff3cd 100%);
             border-left: 4px solid #ffc107;
@@ -549,14 +627,15 @@
             font-size: 0.9rem;
             color: #856404;
         }
-        
+
+        /* Trust Section */
         .trust-section {
             background: var(--dark);
             color: white;
             padding: 50px 0;
             text-align: center;
         }
-        
+
         .trust-grid {
             display: flex;
             flex-wrap: wrap;
@@ -564,26 +643,27 @@
             gap: 30px;
             margin-top: 30px;
         }
-        
+
         .trust-item {
             flex: 1;
             min-width: 200px;
             max-width: 300px;
             padding: 20px;
         }
-        
+
         .trust-icon {
             font-size: 3rem;
             margin-bottom: 15px;
         }
-        
+
         .trust-title {
             font-size: 1.2rem;
             font-weight: 700;
             margin-bottom: 10px;
             color: #ffd700;
         }
-        
+
+        /* Footer */
         .footer {
             background: #121220;
             color: #aaa;
@@ -591,11 +671,11 @@
             text-align: center;
             font-size: 0.9rem;
         }
-        
+
         .footer strong {
             color: white;
         }
-        
+
         .disclaimer {
             max-width: 800px;
             margin: 20px auto 0;
@@ -606,7 +686,46 @@
             line-height: 1.5;
             text-align: left;
         }
-        
+
+        /* Mobile Optimizations */
+        @media (max-width: 600px) {
+            .header-image {
+                height: 150px;
+            }
+
+            .header-content h1 {
+                font-size: 1.4rem;
+            }
+
+            .hero h2 {
+                font-size: 1.6rem;
+            }
+
+            .hero .invite-text {
+                font-size: 1.05rem;
+            }
+
+            .hero .watch-info {
+                font-size: 0.85rem;
+                padding: 10px 15px;
+            }
+
+            .timezone-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 8px;
+            }
+
+            .btn {
+                font-size: 1rem;
+                padding: 16px 20px;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+        }
+
+        /* Urgency Banner */
         .urgency-banner {
             background: #e74c3c;
             color: white;
@@ -615,46 +734,25 @@
             font-weight: 700;
             font-size: 0.95rem;
             position: sticky;
-            top: 70px;
+            top: 200px;
             z-index: 99;
             display: none;
         }
-        
+
         .urgency-banner.show {
             display: block;
         }
-        
-        @media (max-width: 600px) {
-            .hero h2 {
-                font-size: 1.7rem;
-            }
-            
-            .hero .invite-text {
-                font-size: 1.05rem;
-            }
-            
-            .timezone-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 8px;
-            }
-            
-            .btn {
-                font-size: 1rem;
-                padding: 16px 20px;
-            }
-            
-            .section-title {
-                font-size: 1.5rem;
-            }
-        }
     </style>
+<base target="_blank">
 </head>
 <body>
 
     <div class="header">
-        <div class="container">
-            <h1>🌺 Aloha Hawaii Tours & Travel</h1>
-            <span class="phone">📞 (808)-482-6330</span>
+        <div class="header-image">
+            <div class="header-content">
+                <h1>🌺 Aloha Hawaii Tours & Travel</h1>
+                <div class="tagline">Your Gateway to Exclusive Travel Deals</div>
+            </div>
         </div>
     </div>
 
@@ -666,6 +764,9 @@
         <div class="container hero-content">
             <h2>You're Invited to Participate in Our Travel Webinar</h2>
             <p class="invite-text">Just watch our 45 minute presentation where we demo how you could get access to exclusive deals with zero markups</p>
+            <div class="watch-info">
+                📺 Watch at the comfort of your own home or anywhere as long as it's a quiet environment and you're not driving via Zoom
+            </div>
             <div class="time-commitment">⏱️ Just 45 Minutes of Your Time</div>
             <div class="badge-group">
                 <span class="badge">✓ Watch & Receive Voucher</span>
@@ -692,7 +793,7 @@
                 <a href="https://zoom.us/my/alohatravel?pwd=ckhzbFk5ZElBSjhxSDF1YkpVOGRCZz09" class="btn btn-primary" id="joinBtn">
                     🚀 Join Live Session Now
                 </a>
-                
+
                 <div class="bonus-banner" id="bonusBanner">
                     <div class="bonus-title">💻 $100 Bonus Rewards Certificate</div>
                     <div class="bonus-additional">on top of your preferred vacation voucher</div>
@@ -700,7 +801,7 @@
                     <div class="bonus-reason">Wider screen = Better viewing experience for our presentation</div>
                 </div>
 
-                <a href="https://forms.gle/hraJz8c5kj61b4Jd6" class="btn btn-secondary" id="reserveBtn">
+                <a href="https://forms.gle/eeVAGDQbunGbR63U9" class="btn btn-secondary btn-pulse" id="reserveBtn">
                     📅 Reserve Your Spot for Next Session
                 </a>
             </div>
@@ -773,12 +874,10 @@
                         <div class="card-meta">🌺 6 Days / 5 Nights</div>
                         <h3 class="card-title">Premium Hawaii Hotel Stay</h3>
                         <ul class="card-features">
-                            <li>Valid in Oahu — experience world‑famous Waikiki Beach, vibrant nightlife, shopping, and dining</li>
-                            <li>Accommodates 2 adults (extra guests allowed)</li>
-                            <li>Marriott, Hyatt, Hilton, Wyndham, IHG & more</li>
-                            <li>18-month validity period</li>
-                            <li>Voucher issued via email within the day after viewing</li>
-                            <li>Redeem now, travel later flexibility</li>
+                            <li>Valid in Oahu — experience world-famous Waikiki Beach, vibrant nightlife, shopping, and dining</li>
+                            <li>Good for 2 adults (extra guests allowed)</li>
+                            <li>Marriott, Hyatt, Hilton, IHG & Wyndham</li>
+                            <li>Valid 18 months</li>
                         </ul>
                         <div class="highlight-box">
                             Premium oceanfront and resort properties available based on seasonal availability.
@@ -789,15 +888,15 @@
                 <div class="incentive-card">
                     <img src="https://kimi-web-img.moonshot.cn/img/media-cdn.tripadvisor.com/a8b1c5ee366b97abdd214af9bb1eff7bdd4d9580.jpg" alt="Puerto Plata Resort" class="card-image">
                     <div class="card-content">
-                        <div class="card-meta">🏖️ 6 Days / 5 Nights • All-Inclusive</div>
+                        <div class="card-meta">🏖️ 5 Nights • All-Inclusive</div>
                         <h3 class="card-title">Puerto Plata Beachfront Resort</h3>
                         <ul class="card-features">
-                            <li>Dominican Republic luxury beachfront</li>
-                            <li>Unlimited meals, drinks & alcohol included</li>
-                            <li>11 restaurants + 11 bars + 14 pools</li>
-                            <li>Up to 4 guests per room</li>
-                            <li>Wyndham, Marriott, Hilton properties</li>
-                            <li>18 months to travel</li>
+                            <li>5-night all-inclusive beachfront resort (Dominican Republic)</li>
+                            <li>Accommodates 2 adults + 2 children (12 & under)</li>
+                            <li>Unlimited meals, snacks, drinks & alcoholic beverages</li>
+                            <li>Multiple restaurants, bars & pool areas throughout the resort</li>
+                            <li>Beach access, nightly entertainment & resort activities</li>
+                            <li>Hotel: Lifestyle Tropical Beach Resort & Spa</li>
                         </ul>
                         <div class="highlight-box">
                             All-inclusive resort experience with everything covered.
@@ -878,8 +977,7 @@
     <footer class="footer">
         <div class="container">
             <p><strong>Aloha Hawaii Tours & Travel</strong></p>
-            <p>📞 (808)-482-6330</p>
-            
+
             <div class="disclaimer">
                 <p><strong>Terms & Conditions:</strong> Travel certificates are complimentary incentives provided for attending a 45-minute travel presentation. Certificates are valid for the time periods specified and are subject to availability and blackout dates. Certificates are transferable prior to activation but cannot be redeemed for cash value. Images shown are representative of property types; specific resorts and ships vary based on availability. Additional terms and conditions apply and will be provided with your certificate.</p>
             </div>
@@ -887,28 +985,38 @@
     </footer>
 
     <script>
-        function formatTimeRange(startHour, endHour) {
-            const formatHour = (h) => {
+        function formatTimeRange(startHour, startMin, endHour, endMin) {
+            const formatTime = (h, m) => {
                 const ampm = h >= 12 ? 'PM' : 'AM';
                 const h12 = h % 12 || 12;
-                return h12 + ampm;
+                return h12 + ':' + (m < 10 ? '0' + m : m) + ' ' + ampm;
             };
-            
-            return formatHour(startHour) + ' to ' + formatHour(endHour);
+
+            return formatTime(startHour, startMin) + ' to ' + formatTime(endHour, endMin);
         }
-        
+
         function updateTimezones() {
             const now = new Date();
             const etTime = new Date(now.toLocaleString("en-US", {timeZone: "America/New_York"}));
-            
+
             const etHour = etTime.getHours();
-            const isLive = etHour >= 14 && etHour < 20;
-            
+            const etMin = etTime.getMinutes();
+
+            // Live from 1:50 PM to 8:35 PM ET
+            let isLive = false;
+            if (etHour === 13) {
+                isLive = etMin >= 50;
+            } else if (etHour >= 14 && etHour <= 19) {
+                isLive = true;
+            } else if (etHour === 20) {
+                isLive = etMin <= 35;
+            }
+
             const statusDiv = document.getElementById('statusIndicator');
             const joinBtn = document.getElementById('joinBtn');
             const reserveBtn = document.getElementById('reserveBtn');
             const urgencyBanner = document.getElementById('urgencyBanner');
-            
+
             if (isLive) {
                 statusDiv.innerHTML = `
                     <div class="live-pulse">
@@ -918,53 +1026,60 @@
                     <p style="margin-top: 10px; color: #666; font-weight: 600;">Make your 45 minutes worth it! Join instantly below.</p>
                 `;
                 joinBtn.classList.remove('btn-hidden');
+                reserveBtn.classList.remove('btn-pulse');
                 reserveBtn.classList.add('btn-hidden');
                 urgencyBanner.classList.add('show');
             } else {
                 const nextSession = new Date(etTime);
                 nextSession.setHours(14, 0, 0, 0);
-                if (etHour >= 20) {
+                if (etHour > 20 || (etHour === 20 && etMin > 35)) {
                     nextSession.setDate(nextSession.getDate() + 1);
                 }
-                
+
                 const options = { weekday: 'long', month: 'short', day: 'numeric' };
                 const dateStr = nextSession.toLocaleDateString('en-US', options);
-                
+
                 statusDiv.innerHTML = `
-                    <div class="next-session">
+                    <div class="not-live-message">
+                        <h3>⚪ We Are Not Live at the Moment</h3>
+                        <p>Our next session starts soon. Reserve your spot below!</p>
+                    </div>
+                    <div class="next-session" style="margin-top: 15px;">
                         <strong>Next Live Session:</strong><br>
-                        <span style="font-size: 1.3rem; color: var(--primary); font-weight: 800;">${dateStr} at 2PM to 8PM Eastern</span>
+                        <span style="font-size: 1.3rem; color: var(--primary); font-weight: 800;">${dateStr} at 2:00 PM to 8:30 PM Eastern</span>
                         <p style="margin-top: 8px; font-size: 0.95rem; color: #666;">Just 45 minutes of your time!</p>
                     </div>
                 `;
                 joinBtn.classList.add('btn-hidden');
                 reserveBtn.classList.remove('btn-hidden');
+                reserveBtn.classList.add('btn-pulse');
                 urgencyBanner.classList.remove('show');
             }
-            
+
+            // Timezone conversions - 2:00 PM to 8:30 PM ET
             const timezones = [
-                { name: 'Eastern', start: 14, end: 20 },
-                { name: 'Central', start: 13, end: 19 },
-                { name: 'Mountain', start: 12, end: 18 },
-                { name: 'Pacific', start: 11, end: 17 },
-                { name: 'Alaska', start: 10, end: 16 },
-                { name: 'Hawaii', start: 8, end: 14 },
-                { name: 'Vancouver', start: 11, end: 17 }
+                { name: 'Eastern', startH: 14, startM: 0, endH: 20, endM: 30 },
+                { name: 'Central', startH: 13, startM: 0, endH: 19, endM: 30 },
+                { name: 'Mountain', startH: 12, startM: 0, endH: 18, endM: 30 },
+                { name: 'Pacific', startH: 11, startM: 0, endH: 17, endM: 30 },
+                { name: 'Alaska', startH: 10, startM: 0, endH: 16, endM: 30 },
+                { name: 'Hawaii', startH: 8, startM: 0, endH: 14, endM: 30 },
+                { name: 'Vancouver', startH: 11, startM: 0, endH: 17, endM: 30 }
             ];
-            
+
             const grid = document.getElementById('timezoneGrid');
             grid.innerHTML = '';
-            
+
             timezones.forEach(tz => {
                 const div = document.createElement('div');
                 div.className = 'timezone-item';
                 div.innerHTML = `
                     <div class="tz-label">${tz.name}</div>
-                    <div class="tz-time">${formatTimeRange(tz.start, tz.end)}</div>
+                    <div class="tz-time">${formatTimeRange(tz.startH, tz.startM, tz.endH, tz.endM)}</div>
                 `;
                 grid.appendChild(div);
             });
-            
+
             const localOptions = { 
                 weekday: 'long', 
                 year: 'numeric', 
@@ -978,12 +1093,12 @@
                 <strong>Your Current Time:</strong> ${now.toLocaleDateString('en-US', localOptions)}
             `;
         }
-        
+
         function toggleZoom() {
             const details = document.getElementById('zoomDetails');
             details.classList.toggle('active');
         }
-        
+
         updateTimezones();
         setInterval(updateTimezones, 60000);
     </script>
